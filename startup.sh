@@ -112,4 +112,4 @@ EOF
 
 echo "$CRON_CONFIG" | crontab -
 
-echo "\n### Crontab applied successfully!  Startup Complete ###\n"
+echo "\n### Crontab applied successfully!  Startup Complete ###"
