@@ -107,3 +107,5 @@ fi
 
 echo -e "\n### Deletion Operations Completed ###"
 
+## make a file so startup can begin
+echo "done" > /tmp/teardown.done

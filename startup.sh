@@ -1,4 +1,12 @@
 #!/bin/bash
+# Wait for teardown to complete before starting up
+while [ ! -f /tmp/teardown.done ]; do
+    echo "Waiting for teardown to complete..."
+    sleep 1
+done
+
+# Proceed with startup tasks
+echo "Teardown complete. Starting up..."
 
 usage() {
   echo "Usage: $0 -f <pceFqdn> -P <pcePort> -u <apiName> -s <apiSecret> -o <orgId>"
@@ -25,6 +33,7 @@ done
 if [[ -z "$pceFqdn" || -z "$pcePort" || -z "$apiName" || -z "$apiSecret" || -z "$orgId" ]]; then
   usage
 fi
+
 
 # Run in startup/teardown directory
 cd ~/manual-instruqt-startup
@@ -102,4 +111,4 @@ EOF
 
 echo "$CRON_CONFIG" | crontab -
 
-echo "Crontab applied successfully!"
+echo "\n### Crontab applied successfully!  Startup Complete ###\n"
