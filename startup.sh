@@ -39,6 +39,7 @@ fi
 cd ~/manual-instruqt-startup
 
 #Make sure basic labels are added so students can continue in the track
+echo -e "\n### Creating Labels and Label Dimensions ###"
 ./workloader label-dimension-import ./vensim-templates/standard-demo/labeldimensions.csv --update-pce --no-prompt
 ./workloader label-import ./vensim-templates/standard-demo/labels.csv --update-pce --no-prompt
 
