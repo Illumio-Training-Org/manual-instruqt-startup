@@ -39,8 +39,8 @@ fi
 cd ~/manual-instruqt-startup
 
 #Make sure basic labels are added so students can continue in the track
-./workloader label-dimension-import ~/vensim-templates/standard-demo/labeldimensions.csv --update-pce --no-prompt
-./workloader label-import ~/vensim-templates/standard-demo/labels.csv --update-pce --no-prompt
+./workloader label-dimension-import ./vensim-templates/standard-demo/labeldimensions.csv --update-pce --no-prompt
+./workloader label-import ./vensim-templates/standard-demo/labels.csv --update-pce --no-prompt
 
 
 
@@ -54,19 +54,19 @@ echo -e "\n### Activating VENSim ###"
 SERVER_PK=$(cat server_pp)
 ENDPOINT_PK=$(cat endpoint_pp)
 
-./vensim activate -c ~/vensim-templates/standard-demo/vens.csv -p ~/vensim-templates/standard-demo/processes.csv -m "$pceFqdn:$pcePort" -a "$SERVER_PK" -e "$ENDPOINT_PK"
+./vensim activate -c ./vensim-templates/standard-demo/vens.csv -p ./vensim-templates/standard-demo/processes.csv -m "$pceFqdn:$pcePort" -a "$SERVER_PK" -e "$ENDPOINT_PK"
 
-./vensim post-traffic -c ~/vensim-templates/standard-demo/vens.csv -t ~/vensim-templates/standard-demo/traffic.csv -d "today"
+./vensim post-traffic -c ./vensim-templates/standard-demo/vens.csv -t ./vensim-templates/standard-demo/traffic.csv -d "today"
 
 # Create and Import Resources
 echo -e "\n### Creating and Importing Resources ###"
-./workloader wkld-import ~/vensim-templates/standard-demo/wklds.csv --umwl --allow-enforcement-changes --update-pce --no-prompt
-./workloader svc-import ~/vensim-templates/standard-demo/svcs.csv --update-pce --provision --no-prompt 
-./workloader svc-import ~/vensim-templates/svcs_meta.csv --meta --update-pce --no-prompt --provision
-./workloader ipl-import ~/vensim-templates/standard-demo/iplists.csv --update-pce --no-prompt --provision
-./workloader ruleset-import ~/vensim-templates/standard-demo/rulesets.csv --update-pce --no-prompt --provision
-./workloader adgroup-import ~/vensim-templates/standard-demo/adgroups.csv --update-pce --no-prompt
-./workloader rule-import ~/vensim-templates/standard-demo/rules.csv --update-pce --no-prompt --provision
+./workloader wkld-import ./vensim-templates/standard-demo/wklds.csv --umwl --allow-enforcement-changes --update-pce --no-prompt
+./workloader svc-import ./vensim-templates/standard-demo/svcs.csv --update-pce --provision --no-prompt 
+./workloader svc-import ./vensim-templates/svcs_meta.csv --meta --update-pce --no-prompt --provision
+./workloader ipl-import ./vensim-templates/standard-demo/iplists.csv --update-pce --no-prompt --provision
+./workloader ruleset-import ./vensim-templates/standard-demo/rulesets.csv --update-pce --no-prompt --provision
+./workloader adgroup-import ./vensim-templates/standard-demo/adgroups.csv --update-pce --no-prompt
+./workloader rule-import ./vensim-templates/standard-demo/rules.csv --update-pce --no-prompt --provision
 
 
 echo -e "\n### Script Execution Completed Successfully ###"
@@ -87,11 +87,11 @@ PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/centos/.local/bin:/
 PATH=/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/centos/.local/bin:/home/centos/bin
 
 # Set variables
-TARGET_DIR=/root
+TARGET_DIR=~/manual-instruqt-startup
 PCE=poc3.illum.io:443
-WORKLOAD_FILE=~/vensim-templates/standard-demo/vens.csv
-TRAFFIC_FILE=~/vensim-templates/standard-demo/traffic.csv
-PROCESS_FILE=~/vensim-templates/standard-demo/processes.csv
+WORKLOAD_FILE=./vensim-templates/standard-demo/vens.csv
+TRAFFIC_FILE=./vensim-templates/standard-demo/traffic.csv
+PROCESS_FILE=./vensim-templates/standard-demo/processes.csv
 
 # Update workload running processes once a day at 6 AM
 0 6 * * * cd $TARGET_DIR && ./vensim update-processes -c $WORKLOAD_FILE -p $PROCESS_FILE >/dev/null 2>&1
