@@ -38,6 +38,9 @@ fi
 # Run in startup/teardown directory
 cd ~/manual-instruqt-startup
 
+#Make sure basic labels are added so students can continue in the track
+./workloader label-import ~/vensim-templates/standard-demo/labels.csv --update-pce --no-prompt --provision
+
 
 # Generate Pairing Keys
 echo -e "\n### Generating Pairing Keys ###"
@@ -112,4 +115,4 @@ EOF
 
 echo "$CRON_CONFIG" | crontab -
 
-echo "\n### Crontab applied successfully!  Startup Complete ###"
+echo "### Crontab applied successfully!  Startup Complete ###"
