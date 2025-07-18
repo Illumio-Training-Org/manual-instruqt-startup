@@ -39,7 +39,9 @@ fi
 cd ~/manual-instruqt-startup
 
 #Make sure basic labels are added so students can continue in the track
-./workloader label-import ~/vensim-templates/standard-demo/labels.csv --update-pce --no-prompt --provision
+./workloader label-dimension-import ~/vensim-templates/standard-demo/labeldimensions.csv --update-pce --no-prompt
+./workloader label-import ~/vensim-templates/standard-demo/labels.csv --update-pce --no-prompt
+
 
 
 # Generate Pairing Keys
@@ -58,8 +60,6 @@ ENDPOINT_PK=$(cat endpoint_pp)
 
 # Create and Import Resources
 echo -e "\n### Creating and Importing Resources ###"
-./workloader label-dimension-import ~/vensim-templates/standard-demo/labeldimensions.csv --update-pce --no-prompt
-./workloader label-import ~/vensim-templates/standard-demo/labels.csv --update-pce --no-prompt
 ./workloader wkld-import ~/vensim-templates/standard-demo/wklds.csv --umwl --allow-enforcement-changes --update-pce --no-prompt
 ./workloader svc-import ~/vensim-templates/standard-demo/svcs.csv --update-pce --provision --no-prompt 
 ./workloader svc-import ~/vensim-templates/svcs_meta.csv --meta --update-pce --no-prompt --provision
