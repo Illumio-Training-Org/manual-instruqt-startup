@@ -6,7 +6,7 @@ while [ ! -f /tmp/teardown.done ]; do
 done
 
 # Proceed with startup tasks
-echo "Teardown complete. Starting up..."
+echo "Teardown complete. Startup script BEGIN..."
 
 usage() {
   echo "Usage: $0 -f <pceFqdn> -P <pcePort> -u <apiName> -s <apiSecret> -o <orgId>"

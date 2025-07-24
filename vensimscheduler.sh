@@ -1,11 +1,12 @@
 #!/bin/bash
 
+
 # Wait for teardown to complete before starting up
 while [ ! -f /tmp/startup.done ]; do
     echo "Waiting for teardown to complete..."
     sleep 1
 done
-
+echo -e "\n### VENSIM Scheduler Started ###"
 
 # Set variables
 TARGET_DIR=~/manual-instruqt-startup
