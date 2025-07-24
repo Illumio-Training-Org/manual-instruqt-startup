@@ -3,7 +3,7 @@
 
 # Wait for teardown to complete before starting up
 while [ ! -f /tmp/startup.done ]; do
-    echo "Waiting for teardown to complete..."
+    echo "Waiting for startup to complete..."
     sleep 1
 done
 echo -e "\n### VENSIM Scheduler Started ###"
