@@ -1,12 +1,4 @@
 #!/bin/bash
-# Wait for teardown to complete before starting up
-while [ ! -f /tmp/teardown.done ]; do
-    echo "Waiting for teardown to complete..."
-    sleep 1
-done
-
-# Proceed with startup tasks
-echo "Teardown complete. Startup script BEGIN..."
 
 usage() {
   echo "Usage: $0 -f <pceFqdn> -P <pcePort> -u <apiName> -s <apiSecret> -o <orgId>"
