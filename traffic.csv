@@ -1,9 +1,9 @@
 src,dst,port,proto
 rocky,ubuntu,3306,6
-rocky,windows,8080,6
 rocky,ubuntu,1433,6
 ubuntu,rocky,53,17
-ubuntu,windows,997,6
+ubuntu,rocky,8080,6
+windows,rocky,997,17
 windows,rocky,21,6
 windows,ubuntu,23,6
 windows,ubuntu,80,6
