@@ -35,6 +35,18 @@ cd ~/manual-instruqt-startup
 echo -e "\n### Adding Workloader PCE Configuration ###"
 ./workloader pce-add -a --name default --fqdn "$pceFqdn" --port "$pcePort" --api-user "$apiName" --api-secret "$apiSecret" --org "$orgId" --disable-tls-verification true
 
+#--- dd pairing profile ------
+./workloader pairing-profile-export --output-file /tmp/delete_pp.csv
+if [[ -f /tmp/delete_pp.csv ]]; then
+  ./workloader delete /tmp/delete_pp.csv --header href --update-pce --no-prompt --provision
+fi
+
+#---dd label---
+./workloader label-export --output-file /tmp/delete_labels.csv 
+if [[ -f /tmp/delete_labels.csv ]]; then
+   ./workloader delete /tmp/delete_labels.csv --header href --update-pce --no-prompt --provision
+fi
+
 #Make sure basic labels are added so students can continue in the track
 echo -e "\n### Creating Labels and Label Dimensions ###"
 ./workloader label-dimension-import ./vensim-templates/standard-demo/labeldimensions.csv --update-pce --no-prompt
