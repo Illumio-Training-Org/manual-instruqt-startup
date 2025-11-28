@@ -44,8 +44,8 @@ echo -e "\n### Creating Labels and Label Dimensions ###"
 
 # Generate Pairing Keys
 echo -e "\n### Generating Pairing Keys ###"
-./workloader get-pk --profile Default-Servers --create --ven-type server -f server_pp
-./workloader get-pk --profile Default-Endpoints --create --ven-type endpoint -f endpoint_pp
+./workloader get-pk --profile Vensim-Created-Servers --create --ven-type server -f server_pp
+./workloader get-pk --profile Vensim-Created-Endpoints --create --ven-type endpoint -f endpoint_pp
 
 # Activate VENSim
 echo -e "\n### Activating VENSim ###"
