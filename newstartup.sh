@@ -47,6 +47,11 @@ if [[ -f /tmp/delete_labels.csv ]]; then
    ./workloader delete /tmp/delete_labels.csv --header href --update-pce --no-prompt --provision
 fi
 
+#--dd svc-----
+./workloader svc-export --compressed --output-file /tmp/delete_svc.csv 
+if [[ -f /tmp/delete_svc.csv ]]; then
+   ./workloader delete /tmp/delete_svc.csv --header href --update-pce --no-prompt --provision --continue-on-error
+fi
 
 #Make sure basic labels are added so students can continue in the track
 echo -e "\n### Creating Labels and Label Dimensions ###"
