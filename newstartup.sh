@@ -80,9 +80,9 @@ echo -e "\n### Creating and Importing Resources ###"
 ./workloader svc-import ./vensim-templates/standard-demo/svcs.csv --update-pce --provision --no-prompt 
 ./workloader svc-import ./vensim-templates/svcs_meta.csv --meta --update-pce --no-prompt --provision
 ./workloader ipl-import ./vensim-templates/standard-demo/iplists.csv --update-pce --no-prompt --provision
-./workloader ruleset-import ./vensim-templates/standard-demo/rulesets.csv --update-pce --no-prompt --provision
 ./workloader adgroup-import ./vensim-templates/standard-demo/adgroups.csv --update-pce --no-prompt
-./workloader rule-import ./vensim-templates/standard-demo/rules.csv --update-pce --no-prompt --provision
+#./workloader ruleset-import ./vensim-templates/standard-demo/rulesets.csv --update-pce --no-prompt --provision
+#./workloader rule-import ./vensim-templates/standard-demo/rules.csv --update-pce --no-prompt --provision
 
 
 echo -e "\n### Script Execution Completed Successfully ###"
